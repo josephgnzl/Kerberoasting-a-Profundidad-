@@ -22,3 +22,10 @@ Si se consigue recuperar la contraseña, se procede a evaluar los **privilegios 
 |---|---|
 | **Cuentas de servicio** | Usualmente poseen un SPN asociado y pueden ser objetivo de solicitudes de tickets TGS. |
 | **Cuentas de servicio con privilegios elevados** | Representan un riesgo mayor si sus credenciales llegan a verse comprometidas. |
+
+
+## Reproduccion 
+
+Enumeracion
+
+Para enumerar las cuentas con SPN utilizaremos 
