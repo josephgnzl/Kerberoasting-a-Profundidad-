@@ -1,15 +1,10 @@
-# ¿Qué es Kerberoasting?
+# Kerberoasting
 
 Kerberoasting es una técnica de ataque contra entornos Windows, específicamente Active Directory, que permite obtener tickets de servicio (TGS) asociados a cuentas que tienen un Service Principal Name (SPN) registrado, con el objetivo de intentar recuperar sus contraseñas mediante cracking offline.
 
 La premisa del ataque es sencilla, pero su impacto puede ser significativo: cualquier usuario autenticado del dominio puede solicitar un ticket TGS para una cuenta que tenga un SPN registrado, sin necesidad de contar con privilegios administrativos especiales.
 
-### ¿A quién está dirigido el ataque?
-
-- **Cuentas de servicio:** usualmente poseen un SPN asociado y pueden ser objetivo de solicitudes de tickets TGS.
-- **Cuentas de servicio con privilegios elevados:** representan un riesgo mayor si sus credenciales llegan a verse comprometidas.
-
-### ¿Cómo funciona el ataque?
+## ¿Cómo funciona el ataque?
 
 El proceso comienza con la **enumeración de SPN**, donde se identifican las cuentas de servicio registradas en Active Directory que pueden ser objetivos potenciales.
 
@@ -21,3 +16,9 @@ Mediante técnicas de **cracking offline**, se prueban distintas combinaciones d
 
 Si se consigue recuperar la contraseña, se procede a evaluar los **privilegios y permisos de la cuenta**, determinando el impacto que su compromiso podría tener dentro del dominio.
 
+## ¿A quién está dirigido el ataque?
+
+| Tipo de cuenta | Descripción |
+|---|---|
+| **Cuentas de servicio** | Usualmente poseen un SPN asociado y pueden ser objetivo de solicitudes de tickets TGS. |
+| **Cuentas de servicio con privilegios elevados** | Representan un riesgo mayor si sus credenciales llegan a verse comprometidas. |
