@@ -4,7 +4,7 @@ Kerberoasting es una técnica de ataque contra entornos Windows, específicament
 
 La premisa del ataque es sencilla, pero su impacto puede ser significativo: cualquier usuario autenticado del dominio puede solicitar un ticket TGS para una cuenta que tenga un SPN registrado, sin necesidad de contar con privilegios administrativos especiales.
 
-## ¿Cómo funciona el ataque?
+## ¿Cómo funciona?
 
 El proceso comienza con la **enumeración de SPN**, donde se identifican las cuentas de servicio registradas en Active Directory que pueden ser objetivos potenciales.
 
@@ -16,7 +16,7 @@ Mediante técnicas de **cracking offline**, se prueban distintas combinaciones d
 
 Si se consigue recuperar la contraseña, se procede a evaluar los **privilegios y permisos de la cuenta**, determinando el impacto que su compromiso podría tener dentro del dominio.
 
-## ¿A quién está dirigido el ataque?
+## ¿A quién va dirigido?
 
 | Tipo de cuenta | Descripción |
 |---|---|
