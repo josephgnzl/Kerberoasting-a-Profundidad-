@@ -6,29 +6,18 @@ La premisa del ataque es sencilla, pero su impacto puede ser significativo: cual
 
 ### ¿A quién está dirigido el ataque?
 
-- **Cuentas de servicio:** tienen un SPN asociado y pueden ser objetivo de solicitudes de tickets TGS.
+- **Cuentas de servicio:** usualmente poseen un SPN asociado y pueden ser objetivo de solicitudes de tickets TGS.
 - **Cuentas de servicio con privilegios elevados:** representan un riesgo mayor si sus credenciales llegan a verse comprometidas.
 
 ### ¿Cómo funciona el ataque?
 
-| Etapa | Descripción |
-|---|---|
-| **Enumeración** | Identificación de cuentas de servicio con SPN registrado. |
-| **Solicitud TGS** | Se solicita un ticket de servicio al Domain Controller. |
-| **Extracción** | Se obtiene el material criptográfico del ticket TGS. |
-| **Cracking offline** | Se intenta recuperar la contraseña mediante ataques de diccionario o fuerza bruta. |
-| **Compromiso** | Si se recupera la contraseña, se evalúan los privilegios de la cuenta. |
+El proceso comienza con la **enumeración de SPN**, donde se identifican las cuentas de servicio registradas en Active Directory que pueden ser objetivos potenciales.
 
----
+Una vez identificadas, se realiza la **solicitud de tickets TGS** al Domain Controller. Estos tickets contienen material criptográfico protegido mediante una clave derivada de la contraseña de la cuenta de servicio.
 
-# Reproducción del ataque
+El siguiente paso consiste en la **extracción del ticket TGS** para llevarlo a un entorno controlado y realizar un análisis offline.
 
-### Entorno de laboratorio
+Mediante técnicas de **cracking offline**, se prueban distintas combinaciones de contraseñas hasta encontrar una que permita validar el material criptográfico obtenido.
 
-| Parámetro | Valor |
-|---|---|
-| **Dominio** | `raynex.lab` |
-| **Domain Controller** | `RAYNEX-DC-01` |
-| **Dirección IP** | `10.0.0.46` |
-| **Sistema operativo** | Windows Server 2025 |
-| **Atacante** | Arch Linux |
+Si se consigue recuperar la contraseña, se procede a evaluar los **privilegios y permisos de la cuenta**, determinando el impacto que su compromiso podría tener dentro del dominio.
+
